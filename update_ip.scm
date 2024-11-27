@@ -66,7 +66,9 @@
 
 (define get-ip
   (lambda _
-    (http-get "https://ipinfo.io/ip")))
+    (receive (_ ip)
+        (http-get "https://ipinfo.io/ip")
+      ip)))
 
 (define main
   (lambda _
